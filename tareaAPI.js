@@ -15,7 +15,7 @@ app.use(morgan('dev'));
 
 
 app.get('/', (req, res) => {
-  res.send("<h1>This is an API for Age of Empires</h1>");
+  res.send("<h1>This is an API for Age of Empires and Spotify</h1>");
 })
 
 
@@ -64,7 +64,7 @@ app.get('/units',(req,res)=>{
   });
 });
 
-//Get a specific unit based on structure spawn
+//Get a specific unit based on ID
 app.get('/whatunit/:id',(req,res)=>{
   const URL = `https://age-of-empires-2-api.herokuapp.com/api/v1/unit/${req.params.id}`
   axios.get(URL)
@@ -92,11 +92,11 @@ app.get('/tech',(req,res)=>{
   });
 });
 
-//Get a list of user playlists
+//Get a list of user's playlists
 app.get('/playlists/:user',(req,res)=>{
     const URL = `https://api.spotify.com/v1/users/${req.params.user}/playlists`
     
-const token = 'BQAQKRlEqJEwEiTp5vULMndwroWfNo-4EzCcUOGb5y0EJatCj5qxOCL9eqV7H4iVB1HpNKab33kn2XkQ7NohaOwZiFCT49IEeOrd_fucS26lCx7qQXAIUkZ4TiZdq5WBPn53ERebCNT-tlVXox6kb7M4L43UXq1oIyxAnwKEzLbr0XBbFfS7wJn3ut491lgBoVWZISkdlZnKzX_8-h2EINpQG0svvTdhtPmqNnOt1ZI8TDWcJamKbvQZAozl72RQrkOGbv12jGY5FKGP0zlFLLOq3I4'
+const token = 'BQCNjEQIR9pTtlV5Cq7kdiCmEExn8FVgYDmkazHzZ1WB8zycLPhEjwVJ_gpAgQ7sjoHV71ahfC4dpg_0gE7uAwykOKD8RNfQyWqeN5HfPzfqBYXHDoBR7DbW5I1tGXv1moqmF0LS_jHL_IfS1tini8cLbq8FkOqDIkQf0-qhP9FMKFXKLH2qiAzaOG_bOkWUHvvogjTLOIXu1RTYPmFfWck5ExqY9a_-R9PhimUmnw_lSnJzT80TCqpogC5t1Kgj0h3PCRZ6J-FB2_7YT5pTzATGksc'
 axios.get(URL,{
     headers:{
       'Authorization':`Bearer ${token}`
@@ -111,6 +111,28 @@ axios.get(URL,{
 })
 })
 
+//Using POST and axios for the Spotify API
+//POST examples
+
+//Create a new playlist 
+app.post('/create/playlist/:user',(req,res)=>{
+  const URL = `https://api.spotify.com/v1/users/${req.params.user}/playlists`
+
+  console.log(req);
+  aux = req;
+  res.send('Playlist created', ${aux});
+
+  const token = 'BQCNjEQIR9pTtlV5Cq7kdiCmEExn8FVgYDmkazHzZ1WB8zycLPhEjwVJ_gpAgQ7sjoHV71ahfC4dpg_0gE7uAwykOKD8RNfQyWqeN5HfPzfqBYXHDoBR7DbW5I1tGXv1moqmF0LS_jHL_IfS1tini8cLbq8FkOqDIkQf0-qhP9FMKFXKLH2qiAzaOG_bOkWUHvvogjTLOIXu1RTYPmFfWck5ExqY9a_-R9PhimUmnw_lSnJzT80TCqpogC5t1Kgj0h3PCRZ6J-FB2_7YT5pTzATGksc'
+  axios.post(URL,{
+    //data
+  },{
+    headers: {
+      'Content-Type' : 'application/json',
+      'Accept' : 'application/json',
+      'Authorization' : `Bearer ${token}`
+    }
+  })
+})
 
 //Listen Server
 app.listen((666), () =>{
