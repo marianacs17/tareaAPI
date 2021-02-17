@@ -120,9 +120,9 @@ app.post('/create/playlist/:user',(req,res)=>{
 
   console.log(req);
   aux = req;
-  res.send('Playlist created', ${aux});
+  res.send(`Playlist created ${aux}`);
 
-  const token = 'BQCNjEQIR9pTtlV5Cq7kdiCmEExn8FVgYDmkazHzZ1WB8zycLPhEjwVJ_gpAgQ7sjoHV71ahfC4dpg_0gE7uAwykOKD8RNfQyWqeN5HfPzfqBYXHDoBR7DbW5I1tGXv1moqmF0LS_jHL_IfS1tini8cLbq8FkOqDIkQf0-qhP9FMKFXKLH2qiAzaOG_bOkWUHvvogjTLOIXu1RTYPmFfWck5ExqY9a_-R9PhimUmnw_lSnJzT80TCqpogC5t1Kgj0h3PCRZ6J-FB2_7YT5pTzATGksc'
+  const token = 'BQAQt5X_KscXz4RLwjHT9Rbf8ufHeAUpDT_cY_HtMIzpM-Fwt13vafhhSadlqUwhqtnWk_3KQbECCJ_0q1DH4XnUutFmm2kHrRobhfVzjjZsh5jmJCwBGzqjCcybq5IpVs_QNWWsKrSi1MAxDoyp_nufV4H-6m3UpaDeGZEPz6MnWh6D5kZ6CHByOe7x6Cbr0TcBWlZXRE7wcKJ-vmfebB5IeSfj5i8UECtodPwDlCe9mkLvF8t_frim_ipM9Xs_81a8zobyrNMqIMuHlY53x9RxvjQ'
   axios.post(URL,{
     //data
   },{
