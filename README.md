@@ -4,8 +4,13 @@
  This documentation will help understand the way this local API is working and connecting to the API's used here.
 
 
-This is a **REST** local API. Using `http` methods such as `GET` and `POST`
+This is a **REST** local API. Using `http` methods such as `GET` and `POST`. Retrieving info of third party API's with `axios`.
 
+Third party API's used:
+
+[Age of Empires 2 API](https://age-of-empires-2-api.herokuapp.com/docs/)
+
+[Spotify API](https://developer.spotify.com/documentation/web-api/)
 
 ***
 
@@ -14,15 +19,17 @@ The base URL is: <localhost:666/>
 ***
 
 ### `GET` requests will return responses in `json`
-
+***
 
 ### Civilizations
 *Get a list of all the Age of Empires 2 civilizations*
   
-http://localhost:666/civi
+**Endpoint:** http://localhost:666/civi
 
-*Response*
-~~~ 
+    GET /civi
+
+*Response:*
+~~~
 {
   "civilizations": [
     {
@@ -46,9 +53,11 @@ http://localhost:666/civi
 ~~~
 ---
 ### Specific civilization
-*Get a certain civilization based on ID*
+*Get a specific civilization based on ID*
 
-http://localhost:666/whatciv/{id}
+**Endpoint:** http://localhost:666/whatciv/{id}
+
+    GET /whatciv/{id}
 
 ID required as integer
 
@@ -75,7 +84,9 @@ ID required as integer
 ### Existing units
 *Get a list of the existing units*
 
-http://localhost:666/units
+**Endpoint:** http://localhost:666/units
+
+    GET /units
 
 *Response*
 ~~~
@@ -120,7 +131,9 @@ http://localhost:666/units
 ### Specific unit 
 *Get a specific unit based on ID*
 
-http://localhost:666/whatunit/{id}
+**Endpoint:** http://localhost:666/whatunit/{id}
+
+    GET /whatunit/{id}
 
 ID required as integer
 
@@ -163,7 +176,7 @@ ID required as integer
 ### Technologies
 *Get a list of the existing technologies*
 
-http://localhost:666/tech
+**Endpoint:** http://localhost:666/tech
 
 *Response*
 ~~~
