@@ -122,9 +122,38 @@ app.post('/create/playlist/:user',(req,res)=>{
   aux = req;
   res.send(`Playlist created`);
 
-  const token = 'BQDrdhwd_urrTeOvt4KNPZHlpNuqZ-Z5Dx56Xd_mDCGBhkFROo3-byHB_nYs9U3uYwx5R_YQGqdeZj9NNZx2lJvCpqJkDobV1HTU2NhoQLrUB7o7OpegrjWWie7b8cB1LMxUTQLiZ-U8Jh-veBpezHjhUM79CPS5FLvTqAsTBZNqktHnpMgSR0LwJuLflm95rgyt48W8R48WQHo4IhbkWbUs8-ym3PsmYR6i5082iesOOPgjrBWR0Jmy4Hl9vI6016eiPMnAUT3taj5yZfjzENvz1DE'
+  const token = 'BQBtMz5K7Fk2khF9qIlx5b62_t7w6aPBARcpOj0ecmH43MuZDQdEi0fTzyEU_lDYvzaRZJVBRMFqMo3sq6CRLzPUahMq704JiTjw5mjWCUI-oYTGIP9opjAWwEP6X92HIloewj4jktmHEZN6MSVYRN-kFyGvW-2CL3-vUrg1x5B0aQNpsU1t6_sOxjVUGb7sOQQiQAhNgudP-EUfgSHb_i0tNvgcQRQBrxxee9I_98erfn9cIBnA8Htq2kCJ3X7vQr15Kcvvifva1N9WRBSjBpBx9X4qKaSv'
   axios.post(URL,{
-    //data
+    //data o body
+    
+      "name": "TAREA PRUEBA",
+      "description": "this is a test",
+      "public": true
+  
+  },{
+    headers: {
+      'Content-Type' : 'application/json',
+      'Accept' : 'application/json',
+      'Authorization' : `Bearer ${token}`
+    }
+  })
+})
+
+//Add a track to playlist 
+app.post('/add/tracks',(req,res)=>{
+  const ID = `0IcKoP13nC4Afyf6MtVSaT`
+  const URL = `https://api.spotify.com/v1/playlists/${ID}/tracks`
+
+  console.log(req);
+  aux = req;
+  res.send(`Track added correctly`);
+
+  const token = 'BQDqwTGbJoPh_cr0iI9g_kyemwhH5DfT0loIunZSRgPwfHZf-3RQQnJAqN5ARKJRXn6Y6rC_iNiIeu942qTsethUD0PBV4Lpf_JK0px1fFod6J2F_41tNHLkHiGXVuHgJcEg29tNLoDdU_N6_gDEwypc9OHsrY02oA5NXUdLtvdOgleVqg9mGba1V2eBGeQjYl5yGOwET1Ov_-RFT2NPqqhjgu0gYu1wPYNTWx9CdJCNXGf1e3wucMabl6eSHHT6wbR2EoQfwQWfwxV2flWIghbUDrwh7GK3'
+  axios.post(URL,{
+    //data o body
+    
+      "uris" : 'spotify:track:7lPN2DXiMsVn7XUKtOW1CS'
+  
   },{
     headers: {
       'Content-Type' : 'application/json',

@@ -59,7 +59,7 @@ The base URL is: <localhost:666/>
 
     GET /whatciv/{id}
 
-ID required as integer
+Passing ID as a parameter
 
 *Response*
 ~~~
@@ -135,7 +135,7 @@ ID required as integer
 
     GET /whatunit/{id}
 
-ID required as integer
+Passing ID as a parameter
 
 *Response*
 ~~~
@@ -204,3 +204,20 @@ ID required as integer
 }
 ~~~
 ---
+---
+
+### `POST` requests will return response in `json`confirming the task was completed
+---
+### Create a new playlist 
+
+*Creates a new playlist in your spotify account*
+
+**Endpoint:** http://localhost:666/create/playlist/{user}
+
+Passing user_id as a parameter
+
+    POST /create/playlist/{user}
+
+Requesting **authorization** header as OAuth Bearer
+
+JSON Body 
