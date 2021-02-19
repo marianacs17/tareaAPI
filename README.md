@@ -218,6 +218,51 @@ Passing user_id as a parameter
 
     POST /create/playlist/{user}
 
-Requesting **authorization** header as OAuth Bearer
+Headers:
 
-JSON Body 
+- Requesting **authorization** header as OAuth Bearer
+
+- Application/json
+
+- Accept
+
+JSON Body:
+~~~~
+    {  
+      "name": "playlist name",
+      "description": "playlist description",
+      "public": true/false
+    }
+~~~~
+
+JSON response:
+
+    Playlist created
+
+---
+### Add a track to a playlist
+
+*Adds a track to a playlist*
+
+**Endpoint:** http://localhost:666/add/tracks
+
+    POST /add/tracks
+
+Headers:
+
+- Requesting **authorization** header as OAuth Bearer
+
+- Application/json
+
+- Accept
+
+Parameters:
+
+- Playlist ID
+
+- Song ID ("uris" from spotify)
+
+JSON Response:
+
+    Track added correctly
+---
