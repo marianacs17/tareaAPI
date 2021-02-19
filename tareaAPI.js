@@ -141,10 +141,10 @@ app.post('/create/playlist/:user',(req,res)=>{
 
 //Add a track to playlist 
 app.post('/add/tracks',(req,res)=>{
-  //const URL = `https://api.spotify.com/v1/playlists/3VydidgQnzNPXY30odFkRK/tracks?uris=spotify%3Atrack%3A4xqrdfXkTW4T0RauPLv3WA`
-  playl_ID = `3VydidgQnzNPXY30odFkRK`
-  track = `uris=spotify:track:2wwzGBhDWfZveGjpxj5be7`
-  const URL = `https://api.spotify.com/v1/playlists/${req.params.playl_ID}/tracks${req.params.track}`
+  const URL = `https://api.spotify.com/v1/playlists/3VydidgQnzNPXY30odFkRK/tracks?uris=spotify%3Atrack%3A4xqrdfXkTW4T0RauPLv3WA`
+  //playl_ID = `3VydidgQnzNPXY30odFkRK`
+  //track = `uris=spotify:track:2wwzGBhDWfZveGjpxj5be7`
+  //const URL = `https://api.spotify.com/v1/playlists/${req.params.playl_ID}/tracks${req.params.track}`
   
   //spotify%3Atrack%3A4xqrdfXkTW4T0RauPLv3WA
   console.log(req);
