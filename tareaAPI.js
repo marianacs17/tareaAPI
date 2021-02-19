@@ -143,8 +143,8 @@ app.post('/create/playlist/:user',(req,res)=>{
 app.post('/add/tracks',(req,res)=>{
   //const URL = `https://api.spotify.com/v1/playlists/3VydidgQnzNPXY30odFkRK/tracks?uris=spotify%3Atrack%3A4xqrdfXkTW4T0RauPLv3WA`
   playl_ID = `3VydidgQnzNPXY30odFkRK`
-  //track = `uris=spotify:track:2wwzGBhDWfZveGjpxj5be7`
-  const URL = `https://api.spotify.com/v1/playlists/${req.params.playl_ID}/tracks?`
+  track = `uris=spotify:track:2wwzGBhDWfZveGjpxj5be7`
+  const URL = `https://api.spotify.com/v1/playlists/${req.params.playl_ID}/tracks${req.params.track}`
   
   //spotify%3Atrack%3A4xqrdfXkTW4T0RauPLv3WA
   console.log(req);
@@ -154,7 +154,7 @@ app.post('/add/tracks',(req,res)=>{
   const token = 'BQCy8Lc_reKQjDxAk0MsTfXEOWXswE8IPHxIUmndd9GR5j0IoK419AUnexJzwUHPxHJ6qzx2pvHtHke4oP1rFjA2LjdayQ3nJ-E881jy58L4eAGim_ZUpIY9tN0J6EfRl2JLTutsdGpaDX4dreTBRBYFW-iF4vEpU5no3Hj791VnWZyNOelOmui-YSf630meoVMuCIgsyyLEUGCY7pn8iqTFJumzcCp22ZemHhl0GHI6T6h3u-xpPWiKqEVQKMsfHU9-UXINVRVcxikfCin7Ti9sfrgB-oea'
   axios.post(URL,{
     //data o body
-    "uris" : ["spotify:track:2wwzGBhDWfZveGjpxj5be7","spotify:track:7lPN2DXiMsVn7XUKtOW1CS"]
+    //"uris" : ["spotify:track:2wwzGBhDWfZveGjpxj5be7","spotify:track:7lPN2DXiMsVn7XUKtOW1CS"]
     
   },{
     headers: {
