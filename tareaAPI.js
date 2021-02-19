@@ -116,7 +116,7 @@ axios.get(URL,{
 
 //Using POST and axios for the Spotify API
 //POST examples
-
+const token = 'BQAwjJbg2xGXmASytpPAqcp0m1uheCrrvydC3zLhoD8QrEAzqRcbdtKJXqCCJ5NVHTXTKmFgG7Hw7jIMzs89IDBxFI8gGQr_-pV4sTL0wHX-e_c5_ooZV7AD9C9bodH4B55z7xco0ZqVE8EmooHnNrhr6TLCufxg0O6TBCfBPqMShTx-oq5Kv8WQ-pTfVHR4vmObn5n0IwLGmNxUYWVU0ecwRkOQ-PU1E2X1o2_YZsGIilL5An9allfRahBLKSK9jO0LJ-nWeu9gqs1gL8-jUzIR5bgaeWOr'
 //Create a new playlist 
 app.post('/create/playlist/:user',(req,res)=>{
   const URL = `https://api.spotify.com/v1/users/${req.params.user}/playlists`
@@ -125,7 +125,7 @@ app.post('/create/playlist/:user',(req,res)=>{
   aux = req;
   res.send(`Playlist created`);
 
-  const token = 'BQBtMz5K7Fk2khF9qIlx5b62_t7w6aPBARcpOj0ecmH43MuZDQdEi0fTzyEU_lDYvzaRZJVBRMFqMo3sq6CRLzPUahMq704JiTjw5mjWCUI-oYTGIP9opjAWwEP6X92HIloewj4jktmHEZN6MSVYRN-kFyGvW-2CL3-vUrg1x5B0aQNpsU1t6_sOxjVUGb7sOQQiQAhNgudP-EUfgSHb_i0tNvgcQRQBrxxee9I_98erfn9cIBnA8Htq2kCJ3X7vQr15Kcvvifva1N9WRBSjBpBx9X4qKaSv'
+  //const token = 'BQBtMz5K7Fk2khF9qIlx5b62_t7w6aPBARcpOj0ecmH43MuZDQdEi0fTzyEU_lDYvzaRZJVBRMFqMo3sq6CRLzPUahMq704JiTjw5mjWCUI-oYTGIP9opjAWwEP6X92HIloewj4jktmHEZN6MSVYRN-kFyGvW-2CL3-vUrg1x5B0aQNpsU1t6_sOxjVUGb7sOQQiQAhNgudP-EUfgSHb_i0tNvgcQRQBrxxee9I_98erfn9cIBnA8Htq2kCJ3X7vQr15Kcvvifva1N9WRBSjBpBx9X4qKaSv'
   axios.post(URL,{
     //data o body
     
@@ -143,18 +143,17 @@ app.post('/create/playlist/:user',(req,res)=>{
 })
 
 //Add a track to playlist 
-app.post('/add/tracks',(req,res)=>{
-  const URL = `https://api.spotify.com/v1/playlists/3VydidgQnzNPXY30odFkRK/tracks?uris=spotify%3Atrack%3A4xqrdfXkTW4T0RauPLv3WA`
-  //playl_ID = `3VydidgQnzNPXY30odFkRK`
+app.post('/add/tracks/:playlist/:track',(req,res)=>{
+  //const URL = `https://api.spotify.com/v1/playlists/3VydidgQnzNPXY30odFkRK/tracks?uris=spotify%3Atrack%3A4xqrdfXkTW4T0RauPLv3WA`
+  //playlist = `3VydidgQnzNPXY30odFkRK`
   //track = `uris=spotify:track:2wwzGBhDWfZveGjpxj5be7`
-  //const URL = `https://api.spotify.com/v1/playlists/${req.params.playl_ID}/tracks${req.params.track}`
+  const URL = `https://api.spotify.com/v1/playlists/${req.params.playlist}/tracks${req.params.track}`
   
   //spotify%3Atrack%3A4xqrdfXkTW4T0RauPLv3WA
   console.log(req);
   aux = req;
   res.send(`Track added correctly`);
 
-  const token = 'BQCy8Lc_reKQjDxAk0MsTfXEOWXswE8IPHxIUmndd9GR5j0IoK419AUnexJzwUHPxHJ6qzx2pvHtHke4oP1rFjA2LjdayQ3nJ-E881jy58L4eAGim_ZUpIY9tN0J6EfRl2JLTutsdGpaDX4dreTBRBYFW-iF4vEpU5no3Hj791VnWZyNOelOmui-YSf630meoVMuCIgsyyLEUGCY7pn8iqTFJumzcCp22ZemHhl0GHI6T6h3u-xpPWiKqEVQKMsfHU9-UXINVRVcxikfCin7Ti9sfrgB-oea'
   axios.post(URL,{
     //data o body
     //"uris" : ["spotify:track:2wwzGBhDWfZveGjpxj5be7","spotify:track:7lPN2DXiMsVn7XUKtOW1CS"]
@@ -168,7 +167,68 @@ app.post('/add/tracks',(req,res)=>{
   })
 })
 
-app.post()
+//Skip playing song to next
+app.post('/next',(req,res)=>{
+  const URL = `https://api.spotify.com/v1/me/player/next`
+
+  console.log(req);
+  aux = req;
+  res.send(`Next song`);
+
+  axios.post(URL,{
+    //data o body
+  
+  },{
+    headers: {
+      'Content-Type' : 'application/json',
+      'Accept' : 'application/json',
+      'Authorization' : `Bearer ${token}`
+    }
+  })
+})
+
+//Skip playing song to previous track
+app.post('/prev',(req,res)=>{
+  const URL = `https://api.spotify.com/v1/me/player/previous`
+
+  console.log(req);
+  aux = req;
+  res.send(`Previous song`);
+
+  axios.post(URL,{
+    //data o body
+  
+  },{
+    headers: {
+      'Content-Type' : 'application/json',
+      'Accept' : 'application/json',
+      'Authorization' : `Bearer ${token}`
+    }
+  })
+})
+
+//Add items to queue
+app.post('/queue/:uri',(req,res)=>{
+
+  const URL = `https://api.spotify.com/v1/me/player/queue?uri=${req.params.uri}`
+  
+  //spotify%3Atrack%3A4xqrdfXkTW4T0RauPLv3WA
+  //spotify:track:6xn7erBVUmF5iuqOOUO6En
+  //?uri=spotify:track:2wwzGBhDWfZveGjpxj5be7
+  console.log(req);
+  aux = req;
+  res.send(`Track added to queue`);
+
+  axios.post(URL,{
+    
+  },{
+    headers: {
+      'Content-Type' : 'application/json',
+      'Accept' : 'application/json',
+      'Authorization' : `Bearer ${token}`
+    }
+  })
+})
 
 //Listen Server
 app.listen(port, () =>{
