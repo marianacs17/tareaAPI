@@ -178,6 +178,8 @@ Passing ID as a parameter
 
 **Endpoint:** http://localhost:8080/tech
 
+    GET /tech
+
 *Response*
 ~~~
 {
