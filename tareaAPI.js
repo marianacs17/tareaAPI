@@ -9,6 +9,9 @@ const fetch = require('fetch');
 //Using packages
 const app = express();
 
+//Set PORT for Heroku
+let port = process.env.PORT || 8080
+
 //Middleware to read json objects
 app.use(express.json());
 app.use(morgan('dev'));
@@ -168,6 +171,6 @@ app.post('/add/tracks',(req,res)=>{
 app.post()
 
 //Listen Server
-app.listen((666), () =>{
-    console.log("Server running on port 666");
+app.listen(port, () =>{
+  console.log("Server running on port " + port);
 })
