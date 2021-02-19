@@ -116,7 +116,7 @@ axios.get(URL,{
 
 //Using POST and axios for the Spotify API
 //POST examples
-const token = 'BQAwjJbg2xGXmASytpPAqcp0m1uheCrrvydC3zLhoD8QrEAzqRcbdtKJXqCCJ5NVHTXTKmFgG7Hw7jIMzs89IDBxFI8gGQr_-pV4sTL0wHX-e_c5_ooZV7AD9C9bodH4B55z7xco0ZqVE8EmooHnNrhr6TLCufxg0O6TBCfBPqMShTx-oq5Kv8WQ-pTfVHR4vmObn5n0IwLGmNxUYWVU0ecwRkOQ-PU1E2X1o2_YZsGIilL5An9allfRahBLKSK9jO0LJ-nWeu9gqs1gL8-jUzIR5bgaeWOr'
+const token = 'BQD6YPncLkjSSPEnN34izjL6oz8_qYxm60Cvzhe_dKx15yvyYEf5Qme1gXaq8oGq2Re7twDBxS53ti3zJWBGJbI5vk3TPUrTeYCKgpd6ChDjCbtiNX28WLpH6p6DEA6zyH_HhtmCyo1o4nM11ZZAPQyxiDEURSMgdrMJ0Rxymx6Z9VCYlzLqEWfECtp995CcYXGUCxYNWJ7ywUH3Nq7x_QSZiv7JYwAErhFKNNqbNDSAffEr-POJfUhNG4BdA1XNFHus1Xj6H7f7MCWWofCZoczqzU8Fjn92'
 //Create a new playlist 
 app.post('/create/playlist/:user',(req,res)=>{
   const URL = `https://api.spotify.com/v1/users/${req.params.user}/playlists`
@@ -129,8 +129,8 @@ app.post('/create/playlist/:user',(req,res)=>{
   axios.post(URL,{
     //data o body
     
-      "name": "TAREA PRUEBA",
-      "description": "this is a test",
+      "name": "TAREA",
+      "description": "cree esta playlist desde una API local",
       "public": true
   
   },{
@@ -143,20 +143,19 @@ app.post('/create/playlist/:user',(req,res)=>{
 })
 
 //Add a track to playlist 
-app.post('/add/tracks/:playlist/:track',(req,res)=>{
-  //const URL = `https://api.spotify.com/v1/playlists/3VydidgQnzNPXY30odFkRK/tracks?uris=spotify%3Atrack%3A4xqrdfXkTW4T0RauPLv3WA`
+app.post('/add/tracks/:playlist',(req,res)=>{
+
   //playlist = `3VydidgQnzNPXY30odFkRK`
-  //track = `uris=spotify:track:2wwzGBhDWfZveGjpxj5be7`
-  const URL = `https://api.spotify.com/v1/playlists/${req.params.playlist}/tracks${req.params.track}`
+
+  const URL = `https://api.spotify.com/v1/playlists/${req.params.playlist}/tracks`
   
-  //spotify%3Atrack%3A4xqrdfXkTW4T0RauPLv3WA
   console.log(req);
   aux = req;
   res.send(`Track added correctly`);
 
   axios.post(URL,{
     //data o body
-    //"uris" : ["spotify:track:2wwzGBhDWfZveGjpxj5be7","spotify:track:7lPN2DXiMsVn7XUKtOW1CS"]
+    "uris" : ["spotify:track:2wwzGBhDWfZveGjpxj5be7","spotify:track:7lPN2DXiMsVn7XUKtOW1CS","spotify:track:54bFM56PmE4YLRnqpW6Tha"]
     
   },{
     headers: {
@@ -211,7 +210,7 @@ app.post('/prev',(req,res)=>{
 app.post('/queue/:uri',(req,res)=>{
 
   const URL = `https://api.spotify.com/v1/me/player/queue?uri=${req.params.uri}`
-  
+  //
   //spotify%3Atrack%3A4xqrdfXkTW4T0RauPLv3WA
   //spotify:track:6xn7erBVUmF5iuqOOUO6En
   //?uri=spotify:track:2wwzGBhDWfZveGjpxj5be7

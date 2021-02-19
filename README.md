@@ -14,7 +14,7 @@ Third party API's used:
 
 ***
 
-The base URL is: <localhost:666/>
+The base URL is: <localhost:8080/>
 
 ***
 
@@ -24,7 +24,7 @@ The base URL is: <localhost:666/>
 ### Civilizations
 *Get a list of all the Age of Empires 2 civilizations*
   
-**Endpoint:** http://localhost:666/civi
+**Endpoint:** http://localhost:8080/civi
 
     GET /civi
 
@@ -55,7 +55,7 @@ The base URL is: <localhost:666/>
 ### Specific civilization
 *Get a specific civilization based on ID*
 
-**Endpoint:** http://localhost:666/whatciv/{id}
+**Endpoint:** http://localhost:8080/whatciv/{id}
 
     GET /whatciv/{id}
 
@@ -84,7 +84,7 @@ Passing ID as a parameter
 ### Existing units
 *Get a list of the existing units*
 
-**Endpoint:** http://localhost:666/units
+**Endpoint:** http://localhost:8080/units
 
     GET /units
 
@@ -131,7 +131,7 @@ Passing ID as a parameter
 ### Specific unit 
 *Get a specific unit based on ID*
 
-**Endpoint:** http://localhost:666/whatunit/{id}
+**Endpoint:** http://localhost:8080/whatunit/{id}
 
     GET /whatunit/{id}
 
@@ -176,7 +176,7 @@ Passing ID as a parameter
 ### Technologies
 *Get a list of the existing technologies*
 
-**Endpoint:** http://localhost:666/tech
+**Endpoint:** http://localhost:8080/tech
 
 *Response*
 ~~~
@@ -212,7 +212,7 @@ Passing ID as a parameter
 
 *Creates a new playlist in your spotify account*
 
-**Endpoint:** http://localhost:666/create/playlist/{user}
+**Endpoint:** http://localhost:8080/create/playlist/{user}
 
 Passing user_id as a parameter
 
@@ -220,7 +220,7 @@ Passing user_id as a parameter
 
 Headers:
 
-- Requesting **authorization** header as OAuth Bearer
+- Requesting **authorization** header as OAuth Bearer token
 
 - Application/json
 
@@ -244,13 +244,13 @@ JSON response:
 
 *Adds a track to a playlist*
 
-**Endpoint:** http://localhost:666/add/tracks
+**Endpoint:** http://localhost:8080/add/tracks
 
     POST /add/tracks
 
 Headers:
 
-- Requesting **authorization** header as OAuth Bearer
+- Requesting **authorization** header as OAuth Bearer token
 
 - Application/json
 
@@ -265,4 +265,66 @@ Parameters:
 JSON Response:
 
     Track added correctly
+---
+### Skip to next song
+
+*Skips to next song*
+
+**Endpoint:** http://localhost:8080/next
+
+    POST /next
+
+Headers:
+
+- Requesting authorization header as OAuth Bearer token
+
+- Application/json
+
+- Accept
+
+JSON Response:
+
+    Next song
+---
+### Skip to previous song
+
+*Skips to previous song*
+
+**Endpoint:** http://localhost:8080/prev
+
+    POST /prev
+
+Headers:
+
+- Requesting authorization header as OAuth Bearer token
+
+- Application/json
+
+- Accept
+
+JSON Response:
+
+    Previous song
+---
+### Add items to queue
+
+*Adds songs to the users queue*
+
+**Endpoint:** http://localhost:8080/queue/{uri}
+
+Headers:
+
+- Requesting authorization header as OAuth Bearer token
+
+- Application/json
+
+- Accept
+
+Parameters:
+
+- Song ID ("uris" from spotify)
+
+JSON Response:
+
+    Track added to queue
 ---
