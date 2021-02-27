@@ -99,7 +99,7 @@ app.get('/tech',(req,res)=>{
 app.get('/playlists/:user',(req,res)=>{
     const URL = `https://api.spotify.com/v1/users/${req.params.user}/playlists`
     
-const token = 'BQCNjEQIR9pTtlV5Cq7kdiCmEExn8FVgYDmkazHzZ1WB8zycLPhEjwVJ_gpAgQ7sjoHV71ahfC4dpg_0gE7uAwykOKD8RNfQyWqeN5HfPzfqBYXHDoBR7DbW5I1tGXv1moqmF0LS_jHL_IfS1tini8cLbq8FkOqDIkQf0-qhP9FMKFXKLH2qiAzaOG_bOkWUHvvogjTLOIXu1RTYPmFfWck5ExqY9a_-R9PhimUmnw_lSnJzT80TCqpogC5t1Kgj0h3PCRZ6J-FB2_7YT5pTzATGksc'
+//const token = 'BQCLRfMWcpwHVsJfynyE6IyL4l3wF0xPGdkP5ELk0DQXk-or1rDGeySQxmPmMBRTvX8UlIN649u-MOKMW9wpXPh1O6hdYywdjhSTim2v-ISMC12hx5K4rfIFVtltq7D278csOQQM1fIK49aonO9oQ61qf9kxZUngeb9hDgj-652yHDVIIyA6VI_69cPWOY879-4VG0Nc8WAon7GRQrX1C5n5RSckDzYd0DDuelABro6rHqtX9y9ltT1NcN5nkfIAYCk6VhZfPa2ie11VVd5DRk9VA6cV5jmB'
 axios.get(URL,{
     headers:{
       'Authorization':`Bearer ${token}`
@@ -116,7 +116,7 @@ axios.get(URL,{
 
 //Using POST and axios for the Spotify API
 //POST examples
-const token = 'BQD6YPncLkjSSPEnN34izjL6oz8_qYxm60Cvzhe_dKx15yvyYEf5Qme1gXaq8oGq2Re7twDBxS53ti3zJWBGJbI5vk3TPUrTeYCKgpd6ChDjCbtiNX28WLpH6p6DEA6zyH_HhtmCyo1o4nM11ZZAPQyxiDEURSMgdrMJ0Rxymx6Z9VCYlzLqEWfECtp995CcYXGUCxYNWJ7ywUH3Nq7x_QSZiv7JYwAErhFKNNqbNDSAffEr-POJfUhNG4BdA1XNFHus1Xj6H7f7MCWWofCZoczqzU8Fjn92'
+const token = 'BQCLRfMWcpwHVsJfynyE6IyL4l3wF0xPGdkP5ELk0DQXk-or1rDGeySQxmPmMBRTvX8UlIN649u-MOKMW9wpXPh1O6hdYywdjhSTim2v-ISMC12hx5K4rfIFVtltq7D278csOQQM1fIK49aonO9oQ61qf9kxZUngeb9hDgj-652yHDVIIyA6VI_69cPWOY879-4VG0Nc8WAon7GRQrX1C5n5RSckDzYd0DDuelABro6rHqtX9y9ltT1NcN5nkfIAYCk6VhZfPa2ie11VVd5DRk9VA6cV5jmB'
 //Create a new playlist 
 app.post('/create/playlist/:user',(req,res)=>{
   const URL = `https://api.spotify.com/v1/users/${req.params.user}/playlists`
@@ -129,8 +129,8 @@ app.post('/create/playlist/:user',(req,res)=>{
   axios.post(URL,{
     //data o body
     
-      "name": "TAREA",
-      "description": "cree esta playlist desde una API local",
+      "name": "CLASE",
+      "description": "HOLA",
       "public": true
   
   },{
@@ -155,7 +155,7 @@ app.post('/add/tracks/:playlist',(req,res)=>{
 
   axios.post(URL,{
     //data o body
-    "uris" : ["spotify:track:2wwzGBhDWfZveGjpxj5be7","spotify:track:7lPN2DXiMsVn7XUKtOW1CS","spotify:track:54bFM56PmE4YLRnqpW6Tha"]
+    "uris" : ["spotify:track:2wwzGBhDWfZveGjpxj5be7","spotify:track:7lPN2DXiMsVn7XUKtOW1CS","spotify:track:54bFM56PmE4YLRnqpW6Tha","spotify:track:6IwKcFdiRQZOWeYNhUiWIv"]
     
   },{
     headers: {
